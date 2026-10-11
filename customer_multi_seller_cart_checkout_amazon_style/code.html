@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amazon Heritage - Shopping Cart</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#414750",
+            "tertiary": "#b42906",
+            "outline": "#887361",
+            "on-surface-variant": "#554434",
+            "secondary-fixed": "#dde3ee",
+            "primary": "#8a5100",
+            "surface-container-high": "#e6e9e9",
+            "on-tertiary-container": "#861900",
+            "background": "#eaeded",
+            "secondary-fixed-dim": "#c1c7d2",
+            "inverse-primary": "#ffb86f",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d7dbdb",
+            "surface-bright": "#f7fafa",
+            "inverse-on-surface": "#eef1f1",
+            "on-tertiary-fixed": "#3d0600",
+            "on-background": "#181c1d",
+            "on-primary-fixed": "#2c1600",
+            "primary-fixed": "#ffdcbd",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#ffdad2",
+            "surface-container-highest": "#e0e3e3",
+            "primary-fixed-dim": "#ffb86f",
+            "secondary-container": "#dae0eb",
+            "surface-tint": "#8a5100",
+            "on-secondary-fixed": "#161c24",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#2d3131",
+            "primary-container": "#ff9900",
+            "surface-container-low": "#f1f4f4",
+            "secondary": "#595f68",
+            "tertiary-fixed-dim": "#ffb4a3",
+            "on-tertiary-fixed-variant": "#8b1a00",
+            "surface-variant": "#e0e3e3",
+            "on-primary-fixed-variant": "#693c00",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#653a00",
+            "on-secondary-container": "#5d636d",
+            "tertiary-container": "#ff957c",
+            "surface-container": "#ebeeee",
+            "on-surface": "#181c1d",
+            "surface": "#ffffff",
+            "outline-variant": "#dbc2ad"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "sans": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-sans min-h-screen">
+<!-- Top Global Amazon Heritage Header -->
+<header class="bg-[#131921] text-white sticky top-0 z-50 shadow-md">
+<div class="max-w-[1440px] mx-auto px-4 h-16 flex items-center justify-between gap-4">
+<!-- Logo & Brand -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 hover:outline hover:outline-1 hover:outline-white p-1 rounded" href="#">
+<div class="text-[#ff9900] flex items-center">
+<svg class="w-7 h-7" fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="leading-none">
+<span class="text-white text-lg font-black tracking-tight">amazon<span class="text-[#ff9900] font-medium text-xs ml-1 uppercase border border-[#ff9900]/40 px-1 py-0.5 rounded">Heritage</span></span>
+<div class="text-[10px] text-gray-300 tracking-wide font-normal">GI &amp; Artisan Guilds</div>
+</div>
+</a>
+<!-- Delivery location indicator -->
+<div class="hidden lg:flex items-center gap-1 hover:outline hover:outline-1 hover:outline-white p-1 rounded cursor-pointer text-xs">
+<span class="material-symbols-outlined text-gray-400 text-lg">location_on</span>
+<div class="leading-tight">
+<p class="text-gray-400 text-[11px]">Deliver to Aarav</p>
+<p class="font-bold text-white text-[13px]">New Delhi 110001</p>
+</div>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="flex-1 max-w-2xl mx-2">
+<div class="flex h-10 rounded-md overflow-hidden bg-white focus-within:ring-2 focus-within:ring-[#ff9900]">
+<button class="bg-[#f3f3f3] text-gray-700 text-xs px-3 border-r border-gray-300 font-medium hover:bg-gray-200 flex items-center gap-1">
+            GI Craft <span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+</button>
+<input class="w-full px-3 text-sm text-[#131921] focus:outline-none border-none" placeholder="Search GI certified artisan products, master guilds..." type="text" value="Handcrafted certified silk &amp; pottery"/>
+<button class="bg-[#febd69] hover:bg-[#f3a847] px-4 text-[#131921] flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<!-- Top Nav Action Links -->
+<div class="flex items-center gap-4 text-xs font-medium">
+<a class="hidden md:flex flex-col hover:outline hover:outline-1 hover:outline-white p-1 rounded leading-tight" href="#">
+<span class="text-gray-400 text-[11px]">Certified Guilds</span>
+<span class="font-bold text-[13px] text-white">Registry &amp; GI</span>
+</a>
+<a class="flex flex-col hover:outline hover:outline-1 hover:outline-white p-1 rounded leading-tight" href="#">
+<span class="text-gray-400 text-[11px]">Hello, Aarav</span>
+<span class="font-bold text-[13px] text-white flex items-center">Account &amp; Guilds <span class="material-symbols-outlined text-sm">arrow_drop_down</span></span>
+</a>
+<a class="hidden sm:flex flex-col hover:outline hover:outline-1 hover:outline-white p-1 rounded leading-tight" href="#">
+<span class="text-gray-400 text-[11px]">Returns</span>
+<span class="font-bold text-[13px] text-white">&amp; Orders</span>
+</a>
+<!-- Cart Badge -->
+<a class="flex items-center gap-1 hover:outline hover:outline-1 hover:outline-white p-1.5 rounded relative text-white font-bold" href="#">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined text-3xl">shopping_cart</span>
+<span class="absolute -top-1.5 left-4 text-[#ff9900] font-black text-sm">3</span>
+</div>
+<span class="text-sm font-bold ml-1 hidden sm:inline">Cart</span>
+</a>
+</div>
+</div>
+<!-- Secondary Category Sub-nav -->
+<div class="bg-[#232f3e] px-4 py-1.5 text-xs text-white flex items-center gap-6 overflow-x-auto whitespace-nowrap">
+<a class="flex items-center gap-1 font-bold hover:text-[#ff9900]" href="#"><span class="material-symbols-outlined text-base">menu</span> All Guilds</a>
+<a class="hover:text-[#ff9900] flex items-center gap-1" href="#"><span class="material-symbols-outlined text-sm text-[#ff9900]">verified</span> GI Certified Catalog</a>
+<a class="hover:text-[#ff9900]" href="#">Varanasi Silk Weavers</a>
+<a class="hover:text-[#ff9900]" href="#">Jaipur Blue Pottery</a>
+<a class="hover:text-[#ff9900]" href="#">Bengal Terracotta</a>
+<a class="hover:text-[#ff9900]" href="#">Kashmir Pashmina Guild</a>
+<a class="hover:text-[#ff9900]" href="#">Artisan Escrow &amp; Traceability</a>
+<span class="text-gray-400">|</span>
+<span class="text-[#febd69] font-medium flex items-center gap-1"><span class="material-symbols-outlined text-sm">shield</span> 100% Direct-to-Artisan Protected</span>
+</div>
+</header>
+<!-- Main Multi-Seller Cart Container -->
+<main class="max-w-[1440px] mx-auto px-4 py-5">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+<!-- LEFT COLUMN: Cart Items & Guild Groups (8 Cols) -->
+<section class="lg:col-span-8 space-y-4">
+<!-- Main Cart Card -->
+<div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
+<!-- Page Header -->
+<div class="border-b border-gray-200 pb-3 flex flex-wrap justify-between items-end gap-2">
+<div>
+<h1 class="text-[#0f1111] text-3xl font-bold tracking-tight">Shopping Cart</h1>
+<p class="text-[#007185] hover:underline hover:text-[#c7511f] cursor-pointer text-xs mt-1">Deselect all items</p>
+</div>
+<span class="text-gray-500 text-xs font-medium uppercase tracking-wider hidden sm:block">Price</span>
+</div>
+<!-- Free Delivery Threshold Tracker Banner inside cart -->
+<div class="bg-[#f0f7f9] border border-[#a2d4df] rounded-md p-3 my-4 flex items-center justify-between text-xs text-[#0f1111]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#067d62] text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span><strong>Part of your order qualifies for FREE Guaranteed GI-Express Delivery.</strong> Choose free shipping during checkout.</span>
+</div>
+<span class="font-bold text-[#067d62]">Eligible</span>
+</div>
+<!-- GUILD GROUP 1: Varanasi Handloom -->
+<div class="border-b border-gray-200 py-5">
+<!-- Guild Header -->
+<div class="flex items-center justify-between bg-[#fbfaf8] border border-[#e8dfd3] px-3.5 py-2.5 rounded-md mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#8a5100] text-lg">local_florist</span>
+<span class="text-[#1d160c] font-bold text-sm tracking-tight">Kashi Handloom Artisan Guild · Varanasi (GI Tag #112)</span>
+<span class="inline-flex items-center gap-0.5 bg-[#e7f4e8] text-[#067d62] text-[11px] font-bold px-2 py-0.5 rounded-full border border-[#b8e2bb]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Seller
+                </span>
+</div>
+<span class="text-xs text-[#554434] font-medium hidden sm:inline">Dispatches directly from Bunkar Cooperative, UP</span>
+</div>
+<!-- Item 1 Content -->
+<div class="flex flex-col sm:flex-row gap-4 pt-1">
+<div class="flex items-start gap-3">
+<input checked="" class="mt-2 rounded text-[#ff9900] focus:ring-[#ff9900] border-gray-300 h-4 w-4" type="checkbox"/>
+<div class="relative shrink-0 w-32 h-32 rounded-md overflow-hidden bg-gray-100 border border-gray-200">
+<img class="w-full h-full object-cover" data-alt="A luxurious Crimson Zari certified Katan Silk Banarasi Saree, intricately woven with traditional floral gold brocade motifs, photographed in soft museum quality lighting against a textured raw linen backdrop, displaying the lustrous rich red fabric and opulent royal Indian heritage craft aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-HkIl9xR-pCu2TjrVyGdp8L_kCJPCNHDGvIojqXxearThJ-Kf4K26L23pXGfw0chAwrei1p86NSuL_KlFBYuyM6rd9zTxukT9HX3ne2AzsLIJJtkWLGO09xhOnC_5zZfu_nkPSW0rVIVBqGlX-Zw5SkZX316QSVVY0YN7FC5Le8I9MMQ6gGsldbNC3ZNbQkxSFzjkFC0FoDZheihwPX9bqNic_czgs5d2V0dcHUdsKu0KLhJLLsDJww"/>
+<div class="absolute bottom-1 left-1 bg-black/75 text-white text-[10px] px-1.5 py-0.5 rounded font-mono font-medium">GI #112</div>
+</div>
+</div>
+<!-- Product Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-3">
+<h2 class="text-base font-medium text-[#0f1111] hover:text-[#007185] cursor-pointer leading-snug">
+                      Certified Katan Silk Banarasi Saree (Crimson Zari Brocade) with Pure Zari Weave &amp; Silk Mark Certification
+                    </h2>
+<span class="text-[#0f1111] font-bold text-lg whitespace-nowrap">₹12,499.00</span>
+</div>
+<p class="text-xs text-[#067d62] font-semibold mt-1">In Stock</p>
+<p class="text-xs text-gray-500 mt-0.5">Eligible for FREE Prime Craft Shipping &amp; Artisan Gift Packaging</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center gap-1 bg-[#f4efe6] text-[#8a5100] text-[11px] font-semibold px-2 py-0.5 rounded border border-[#dbc2ad]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">workspace_premium</span> Silk Mark Certified
+                    </span>
+<span class="text-[11px] text-gray-500">Lot: KSH-2024-B98</span>
+</div>
+</div>
+<!-- Actions / Controls -->
+<div class="flex flex-wrap items-center gap-4 mt-3 pt-2 text-xs text-[#007185]">
+<div class="flex items-center bg-[#f0f2f2] border border-[#d5d9d9] rounded-md shadow-inner px-2 py-1 gap-1 text-[#0f1111]">
+<span class="text-gray-500 text-[11px]">Qty:</span>
+<select class="bg-transparent border-none p-0 text-xs font-bold focus:ring-0 cursor-pointer text-[#0f1111]">
+<option selected="" value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</div>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Delete</button>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Save for later</button>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">View GI Certificate (#GI/2021/112)</button>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Share</button>
+</div>
+</div>
+</div>
+</div>
+<!-- GUILD GROUP 2: Jaipur Blue Pottery -->
+<div class="border-b border-gray-200 py-5">
+<!-- Guild Header -->
+<div class="flex items-center justify-between bg-[#fbfaf8] border border-[#e8dfd3] px-3.5 py-2.5 rounded-md mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#8a5100] text-lg">palette</span>
+<span class="text-[#1d160c] font-bold text-sm tracking-tight">Kripal Kumbh Master Guild · Jaipur (GI Tag #37)</span>
+<span class="inline-flex items-center gap-0.5 bg-[#e7f4e8] text-[#067d62] text-[11px] font-bold px-2 py-0.5 rounded-full border border-[#b8e2bb]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Seller
+                </span>
+</div>
+<span class="text-xs text-[#554434] font-medium hidden sm:inline">Dispatches from Kotjewar Studio, Jaipur</span>
+</div>
+<!-- Item 2 Content -->
+<div class="flex flex-col sm:flex-row gap-4 pt-1">
+<div class="flex items-start gap-3">
+<input checked="" class="mt-2 rounded text-[#ff9900] focus:ring-[#ff9900] border-gray-300 h-4 w-4" type="checkbox"/>
+<div class="relative shrink-0 w-32 h-32 rounded-md overflow-hidden bg-gray-100 border border-gray-200">
+<img class="w-full h-full object-cover" data-alt="An authentic hand-painted Jaipur Blue Pottery decorative 12-inch fluted vase featuring classic turquoise Persian floral arabesques and cobalt blue glaze, photographed in a bright sunlit studio with crisp studio lighting highlighting the delicate crackle glaze texture and authentic ceramic craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI53dsPCEj4CNB3JDMIysgiogSFtE2_NFyKLj5WizgYn8Q2c3H2GBkpQOuEGj2-z9Mz-lVK2zRs76DLog3RnDMstvq2UdjsWqkkdmE5CtbgUtpHumA8ZXJADiAnWNukOh_FrwUxxR49vhugvUSEEm6QHBYMAMStcA59E_I8Ec0Rd7ZcwlxLKQ6QwGmWb6JHJCvAqYPmO4TDP9GTSjdgomuCBDNwvJaK7h-ILZHEnLvD61A_pkubYjqwg"/>
+<div class="absolute bottom-1 left-1 bg-black/75 text-white text-[10px] px-1.5 py-0.5 rounded font-mono font-medium">GI #37</div>
+</div>
+</div>
+<!-- Product Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-3">
+<h2 class="text-base font-medium text-[#0f1111] hover:text-[#007185] cursor-pointer leading-snug">
+                      Authentic Jaipur Blue Pottery 12-inch Decorative Fluted Vase (Turquoise &amp; Cobalt Arabesque)
+                    </h2>
+<span class="text-[#0f1111] font-bold text-lg whitespace-nowrap">₹1,899.00</span>
+</div>
+<p class="text-xs text-[#067d62] font-semibold mt-1">In Stock</p>
+<p class="text-xs text-gray-500 mt-0.5">Custom foam-lined reinforced wooden crate packaging included</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center gap-1 bg-amber-50 text-amber-800 text-[11px] font-semibold px-2 py-0.5 rounded border border-amber-200">
+<span class="material-symbols-outlined text-xs">inventory_2</span> Fragile Artisan Packing
+                    </span>
+<span class="text-[11px] text-gray-500">Batch Master: K.K. Shekhawat</span>
+</div>
+</div>
+<!-- Actions / Controls -->
+<div class="flex flex-wrap items-center gap-4 mt-3 pt-2 text-xs text-[#007185]">
+<div class="flex items-center bg-[#f0f2f2] border border-[#d5d9d9] rounded-md shadow-inner px-2 py-1 gap-1 text-[#0f1111]">
+<span class="text-gray-500 text-[11px]">Qty:</span>
+<select class="bg-transparent border-none p-0 text-xs font-bold focus:ring-0 cursor-pointer text-[#0f1111]">
+<option selected="" value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</div>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Delete</button>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Save for later</button>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Compare with similar crafts</button>
+</div>
+</div>
+</div>
+</div>
+<!-- GUILD GROUP 3: Panchmura Terracotta -->
+<div class="border-b border-gray-200 py-5">
+<!-- Guild Header -->
+<div class="flex items-center justify-between bg-[#fbfaf8] border border-[#e8dfd3] px-3.5 py-2.5 rounded-md mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#8a5100] text-lg">architecture</span>
+<span class="text-[#1d160c] font-bold text-sm tracking-tight">Panchmura Terracotta Guild · West Bengal (GI Tag #174)</span>
+<span class="inline-flex items-center gap-0.5 bg-[#e7f4e8] text-[#067d62] text-[11px] font-bold px-2 py-0.5 rounded-full border border-[#b8e2bb]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Seller
+                </span>
+</div>
+<span class="text-xs text-[#554434] font-medium hidden sm:inline">Dispatches from Bankura Artisan Cluster</span>
+</div>
+<!-- Item 3 Content -->
+<div class="flex flex-col sm:flex-row gap-4 pt-1">
+<div class="flex items-start gap-3">
+<input checked="" class="mt-2 rounded text-[#ff9900] focus:ring-[#ff9900] border-gray-300 h-4 w-4" type="checkbox"/>
+<div class="relative shrink-0 w-32 h-32 rounded-md overflow-hidden bg-gray-100 border border-gray-200">
+<img class="w-full h-full object-cover" data-alt="A pair of authentic Bankura terracotta horse figurines handcrafted with elongated erect ears and detailed clay engravings in deep earthen reddish-brown tones, situated in warm natural sunlight casting gentle shadows on an Indian artisanal workshop background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC81ftaVun-kIaQ6R-CkuTWz-BcrvP7CD0ftTd9LKhF5w4HMOcYNbH3ZvA2XHjSRqBXCl1SdTHxzQ0PRSOCdF2c1CYwTAU_1SQc2SjzaUVvefmLqY6CVZy-BlbMRJ_W5n60GS-fIi3ke-Coel5CWcz44hVU17agfRNTHqX89maouI4lpdNf6zq2oK0pAn9fmgytkgRFPYwCJP6pyVgxyPxGU4fybLrSyLrl1MKgeS5x13S3yXKBjwt8kw"/>
+<div class="absolute bottom-1 left-1 bg-black/75 text-white text-[10px] px-1.5 py-0.5 rounded font-mono font-medium">GI #174</div>
+</div>
+</div>
+<!-- Product Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-3">
+<h2 class="text-base font-medium text-[#0f1111] hover:text-[#007185] cursor-pointer leading-snug">
+                      Bankura Terracotta Horse Figurine Set (Pair of 10-inch) - Sacred Panchmura Folk Clay Art
+                    </h2>
+<span class="text-[#0f1111] font-bold text-lg whitespace-nowrap">₹899.00</span>
+</div>
+<p class="text-xs text-[#067d62] font-semibold mt-1">In Stock</p>
+<p class="text-xs text-gray-500 mt-0.5">Sold directly by Panchmura Kumbhakar Society | GI Batch Stamp Verified</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center gap-1 bg-[#dae0eb] text-[#161c24] text-[11px] font-semibold px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs">local_shipping</span> Guild Direct Freight
+                    </span>
+</div>
+</div>
+<!-- Actions / Controls -->
+<div class="flex flex-wrap items-center gap-4 mt-3 pt-2 text-xs text-[#007185]">
+<div class="flex items-center bg-[#f0f2f2] border border-[#d5d9d9] rounded-md shadow-inner px-2 py-1 gap-1 text-[#0f1111]">
+<span class="text-gray-500 text-[11px]">Qty:</span>
+<select class="bg-transparent border-none p-0 text-xs font-bold focus:ring-0 cursor-pointer text-[#0f1111]">
+<option selected="" value="1">1</option>
+<option value="2">2</option>
+</select>
+</div>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Delete</button>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Save for later</button>
+<span class="text-gray-300">|</span>
+<button class="hover:underline hover:text-[#c7511f]">Guild Story</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Left Column Bottom Subtotal Banner -->
+<div class="text-right py-4">
+<span class="text-base text-[#0f1111]">Subtotal (3 items): <strong class="text-xl font-bold">₹15,297.00</strong></span>
+</div>
+</div>
+<!-- Saved For Later Section (2 items) -->
+<div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
+<div class="border-b border-gray-200 pb-3 mb-4 flex items-baseline justify-between">
+<h2 class="text-xl font-bold text-[#0f1111]">Saved for later <span class="text-sm font-normal text-gray-500">(2 items)</span></h2>
+<a class="text-xs text-[#007185] hover:underline" href="#">Move all to cart</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Saved Item 1 -->
+<div class="border border-gray-200 rounded-lg p-3 flex gap-3 hover:border-gray-400 transition-colors">
+<div class="w-24 h-24 rounded bg-gray-100 shrink-0 overflow-hidden border border-gray-200">
+<img class="w-full h-full object-cover" data-alt="Traditional handmade brass Dhokra craft tribal dancing figurine from Bastar, showcasing detailed lost-wax metallic wire texture in antique brass gold hues under soft gallery lighting on a muted wood pedestal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRNi2oKYczBbsiPJzduzSFv12Qx3GySDNPxirD9qiGNfGzAcFL8kpl3EHgHfte45ye65pmk_dB8kBJjbdEdz211ypfh9ECm_JfQek44LDcGxOaPc-94j6i_88Dcqdn4qTYlQHC8NAeesu-Tm6OkY6Osn6sLphR0_AUT2IJOA5VrIc3E1FYiPzFSk4YwtcXqtPpGHW-iUlGiYiGcNPuxsDZmrk_h88M65ldmBov6wrlyg587aneF7pEaw"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xs font-semibold text-[#0f1111] line-clamp-2 hover:text-[#007185] cursor-pointer">
+                    Bastar Dhokra Bell Metal Tribal Dancer Figurine (GI Tag #83)
+                  </h3>
+<div class="text-sm font-bold text-[#0f1111] mt-1">₹1,450.00</div>
+<span class="text-[11px] text-[#067d62]">In Stock</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<button class="bg-[#ffd814] hover:bg-[#f7ca00] text-[#0f1111] text-xs font-medium px-3 py-1 rounded-full shadow-sm border border-[#fcd200]">
+                    Move to Cart
+                  </button>
+<button class="text-xs text-[#007185] hover:underline">Delete</button>
+</div>
+</div>
+</div>
+<!-- Saved Item 2 -->
+<div class="border border-gray-200 rounded-lg p-3 flex gap-3 hover:border-gray-400 transition-colors">
+<div class="w-24 h-24 rounded bg-gray-100 shrink-0 overflow-hidden border border-gray-200">
+<img class="w-full h-full object-cover" data-alt="Exquisite hand-painted Madhubani Mithila painting depicting the Tree of Life with intricate natural pigment line art and motifs on handmade Lokta paper, captured in clean balanced daylight highlighting earthy ochre, indigo, and terracotta shades." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-OGJ1ddXsD6eS9YIvxnxvqOntIqDM5KBs80_f3_oaigalX6mZyey8ZaIrmL8MNAGL9Hk_xdW9aH8PP-Ov5iTJJu7rrX6Li7bFay7XEz2w-ABwoqR2Bx4Hs16DKA4ZZ2Fzygb2QUMRJVHUyt7b8T7Zn0YqEt9zetS4Rh0lFCrRCS0Hv6jTbrVCjGk25CdvWslEb5fk2o5HwONxvltHTDwhX0JFHiAFoUIg3_2HbnxYj-6dF_VIl_l8iw"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xs font-semibold text-[#0f1111] line-clamp-2 hover:text-[#007185] cursor-pointer">
+                    Mithila Madhubani Hand-painted Silk Scarf 'Tree of Life' (GI Tag #104)
+                  </h3>
+<div class="text-sm font-bold text-[#0f1111] mt-1">₹2,199.00</div>
+<span class="text-[11px] text-[#067d62]">Only 2 left in stock</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<button class="bg-[#ffd814] hover:bg-[#f7ca00] text-[#0f1111] text-xs font-medium px-3 py-1 rounded-full shadow-sm border border-[#fcd200]">
+                    Move to Cart
+                  </button>
+<button class="text-xs text-[#007185] hover:underline">Delete</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Artisan Guild Escrow Policy Card -->
+<div class="bg-[#fffcf7] border border-[#f4e2ca] rounded-lg p-4 text-xs text-[#554434] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#8a5100] text-2xl shrink-0">verified_user</span>
+<div>
+<h4 class="font-bold text-[#1d160c] text-sm">Empowering India's Heritage Craftsmen</h4>
+<p class="mt-1 leading-relaxed">
+              When you complete this order, your payment is held securely in an RBI-compliant Artisan Escrow. 
+              The weavers of Varanasi, potters of Jaipur, and sculptors of Panchmura receive 100% of fair artisan value upon verified delivery, eliminating middlemen margins.
+            </p>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Amazon Checkout Summary Box (4 Cols - Sticky) -->
+<aside class="lg:col-span-4 space-y-4">
+<!-- Sticky Summary Card -->
+<div class="bg-surface p-5 rounded-lg shadow-sm border border-gray-300 sticky top-20">
+<!-- Free Delivery Qualification Bar -->
+<div class="border-b border-gray-200 pb-4 mb-4">
+<div class="flex items-center gap-2 text-xs text-[#067d62] font-semibold">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Your order qualifies for FREE Delivery</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-gray-200 h-2 rounded-full mt-2 overflow-hidden">
+<div class="bg-[#067d62] h-full rounded-full" style="width: 100%;"></div>
+</div>
+<p class="text-[11px] text-gray-500 mt-1.5">Select Free Delivery option at checkout</p>
+</div>
+<!-- Subtotal Line -->
+<div class="mb-4">
+<div class="text-[#0f1111] text-lg font-normal">
+              Subtotal (3 items): <span class="font-bold text-xl block sm:inline">₹15,297.00</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<input class="rounded text-[#ff9900] focus:ring-[#ff9900] border-gray-300 h-4 w-4" id="gift-check" type="checkbox"/>
+<label class="text-xs text-[#0f1111] cursor-pointer" for="gift-check">This order contains a gift / GI souvenir</label>
+</div>
+</div>
+<!-- Escrow Protection Badge -->
+<div class="bg-[#f0f9f5] border border-[#bee5d3] rounded-md p-2.5 mb-4 flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-[#067d62] text-lg shrink-0" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<div class="text-[#0f1111] leading-tight">
+<strong class="text-[#067d62] block mb-0.5">100% Escrow Safeguard</strong>
+              Funds released to artisan guilds only upon verified delivery and buyer GI inspection.
+            </div>
+</div>
+<!-- Amazon Yellow Proceed Button -->
+<button class="w-full py-2.5 px-4 bg-[#ffd814] hover:bg-[#f7ca00] active:bg-[#f0b800] text-[#0f1111] font-bold text-sm rounded-full shadow-sm border border-[#fcd200] transition-colors flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-base">lock</span> Proceed to Buy (3 items)
+          </button>
+<!-- EMI & Financing Note -->
+<div class="mt-4 pt-3 border-t border-gray-200 text-xs text-[#0f1111]">
+<div class="flex items-center justify-between text-gray-700">
+<span class="font-medium">EMI available</span>
+<a class="text-[#007185] hover:underline font-normal text-[11px]" href="#">Details</a>
+</div>
+<p class="text-gray-500 text-[11px] mt-1">
+              No Cost EMI available on select cards. Standard EMI starts from ₹738/month.
+            </p>
+</div>
+<!-- Direct Artisan Benefit Breakdown -->
+<div class="mt-4 pt-3 border-t border-gray-100 bg-[#fcfaf8] -mx-5 -mb-5 p-4 rounded-b-lg border-b border-gray-200">
+<div class="text-[11px] text-gray-600 flex justify-between py-0.5">
+<span>Artisan Guild Remittance:</span>
+<span class="font-semibold text-gray-800">₹14,198.00 (92.8%)</span>
+</div>
+<div class="text-[11px] text-gray-600 flex justify-between py-0.5">
+<span>GI Quality &amp; Curation:</span>
+<span class="font-semibold text-gray-800">₹699.00</span>
+</div>
+<div class="text-[11px] text-gray-600 flex justify-between py-0.5">
+<span>Insured Heritage Freight:</span>
+<span class="font-semibold text-[#067d62]">FREE</span>
+</div>
+</div>
+</div>
+<!-- Recommended Complementary Artisan Craft Additions -->
+<div class="bg-surface p-5 rounded-lg shadow-sm border border-gray-300">
+<h3 class="text-sm font-bold text-[#0f1111] mb-1">Customers who bought items in your cart also bought</h3>
+<p class="text-[11px] text-gray-500 mb-3">Certified craft companions directly from registered guilds</p>
+<div class="space-y-4">
+<!-- Rec 1 -->
+<div class="flex gap-3 items-start pb-3 border-b border-gray-100">
+<div class="w-16 h-16 rounded overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
+<img class="w-full h-full object-cover" data-alt="A set of four handcrafted lacquered wooden Channapatna craft coasters displaying bright vegetable dyes in yellow, red, and ivory, shot top-down against a rustic wooden dinner table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMRmwWQ-h2xDcNdbe_GBpR2Xq6Ep8-xzwEV7WVQ-0ngcp-sGutZLQr0_3BTyxoHjzNmF4C5ze2aMs6s7dM42cEtEW_ARY5-2u2WflKAu8MVHrQepBnuT2_SN7SnCUjtmWSXlUsaTJLzh39aBuasROGkvnhZw7ZT2W84mHrYRh1BsKxrXu9BlxTk91SESPku19z19WGfEcJBYcKTQTHr0mzVfBFIf4AMhs2j2jeDwyNyWcgdJHij7Shiw"/>
+</div>
+<div class="flex-1 min-w-0">
+<a class="text-xs font-medium text-[#007185] hover:underline hover:text-[#c7511f] line-clamp-2 leading-snug" href="#">
+                  Channapatna Wooden Lacquer Coasters (Pack of 4) · Karnataka GI #19
+                </a>
+<div class="flex items-center gap-1 mt-0.5">
+<div class="flex text-[#de7921] text-xs">
+                    ★★★★★
+                  </div>
+<span class="text-[10px] text-gray-500">(142)</span>
+</div>
+<div class="text-xs font-bold text-[#0f1111] mt-1">₹449.00</div>
+<button class="mt-1 text-[11px] font-semibold bg-[#ffd814] hover:bg-[#f7ca00] text-[#0f1111] px-2.5 py-0.5 rounded-full border border-[#fcd200]">
+                  Add to Cart
+                </button>
+</div>
+</div>
+<!-- Rec 2 -->
+<div class="flex gap-3 items-start pb-3 border-b border-gray-100">
+<div class="w-16 h-16 rounded overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
+<img class="w-full h-full object-cover" data-alt="Pure handmade sandalwood incense sticks from Mysore in handcrafted carved rosewood box with GI tag certification seal, peaceful zen meditation setting with gentle curling aromatic smoke." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGxtQDZGRSr3r1DQQjYU3J4_RTWEK3tTBKoEsnRVijGR5JnrsOFIpxPuzi8OFi0aEqi01jsbBlfL2-mPs9TbfR1WREL8FuSa06kntINuwYLN7aLJMhOS0v_fc5pWv1WFeFBVo4NsZmeKF2iMIFj1QV_7VAua3eAUhsud0m4yDe3w1Xip0Ld6cbni9NeDqYeEpvUbR__ghvVHsjwcaZLO3IUDuz9OrmysjxEdC9GB4WRs5-F6nD_JtMDA"/>
+</div>
+<div class="flex-1 min-w-0">
+<a class="text-xs font-medium text-[#007185] hover:underline hover:text-[#c7511f] line-clamp-2 leading-snug" href="#">
+                  Mysore Sandalwood Incense &amp; Hand-Carved Box · Karnataka GI #22
+                </a>
+<div class="flex items-center gap-1 mt-0.5">
+<div class="flex text-[#de7921] text-xs">
+                    ★★★★☆
+                  </div>
+<span class="text-[10px] text-gray-500">(89)</span>
+</div>
+<div class="text-xs font-bold text-[#0f1111] mt-1">₹620.00</div>
+<button class="mt-1 text-[11px] font-semibold bg-[#ffd814] hover:bg-[#f7ca00] text-[#0f1111] px-2.5 py-0.5 rounded-full border border-[#fcd200]">
+                  Add to Cart
+                </button>
+</div>
+</div>
+<!-- Rec 3 -->
+<div class="flex gap-3 items-start">
+<div class="w-16 h-16 rounded overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
+<img class="w-full h-full object-cover" data-alt="A jar of certified organic Darjeeling Second Flush Muscatel Black Tea loose leaves, photographed beside a steaming porcelain teacup, displaying golden amber liquor against a dark wood tea tray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq7_1X5a1zfgkBTPV9qwsztwDXg-3awdIyu337TZ4HxqkMoOFLWeXxsp0PM2rwsZIrKKvOGmT0hYOE7VR0I5PepuzRt4APS84RznVNM2Xe1ruMUzOyDRZ75ZHnkx3edOMKrkx6hdR2f0W8LIgAF803CQ9YUIxtC7bGhcENSiBCLqAoBrv6gcjC1k8fBHpRd2vqW5uvPhp9s8-viqFdyDSlwN6QuWF5SmdUYgRd6sNdy4eqODJVrcVXww"/>
+</div>
+<div class="flex-1 min-w-0">
+<a class="text-xs font-medium text-[#007185] hover:underline hover:text-[#c7511f] line-clamp-2 leading-snug" href="#">
+                  Darjeeling Muscatel Second Flush Whole Leaf Tea (100g) · GI #1
+                </a>
+<div class="flex items-center gap-1 mt-0.5">
+<div class="flex text-[#de7921] text-xs">
+                    ★★★★★
+                  </div>
+<span class="text-[10px] text-gray-500">(312)</span>
+</div>
+<div class="text-xs font-bold text-[#0f1111] mt-1">₹750.00</div>
+<button class="mt-1 text-[11px] font-semibold bg-[#ffd814] hover:bg-[#f7ca00] text-[#0f1111] px-2.5 py-0.5 rounded-full border border-[#fcd200]">
+                  Add to Cart
+                </button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Amazon Standard Retail Footer -->
+<footer class="mt-12 bg-[#232f3e] text-white text-xs">
+<a class="block bg-[#37475a] hover:bg-[#485769] text-center py-4 text-xs font-semibold text-gray-100 transition-colors" href="#">
+      Back to top
+    </a>
+<div class="max-w-[1200px] mx-auto px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<h4 class="font-bold text-sm mb-3">Get to Know Us</h4>
+<ul class="space-y-2 text-gray-300">
+<li><a class="hover:underline" href="#">About Amazon Heritage</a></li>
+<li><a class="hover:underline" href="#">GI Certification Process</a></li>
+<li><a class="hover:underline" href="#">Artisan Guild Registry</a></li>
+<li><a class="hover:underline" href="#">Escrow Transparency Report</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-3">Artisan Partnerships</h4>
+<ul class="space-y-2 text-gray-300">
+<li><a class="hover:underline" href="#">Register your Weaver Society</a></li>
+<li><a class="hover:underline" href="#">Apply for GI Verification</a></li>
+<li><a class="hover:underline" href="#">Artisan Fulfillment by Amazon</a></li>
+<li><a class="hover:underline" href="#">Master Craftsperson Grants</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-3">Payment &amp; Escrow</h4>
+<ul class="space-y-2 text-gray-300">
+<li><a class="hover:underline" href="#">Direct Artisan Transfer</a></li>
+<li><a class="hover:underline" href="#">Heritage Pay Card</a></li>
+<li><a class="hover:underline" href="#">EMI &amp; Craft Micro-Loans</a></li>
+<li><a class="hover:underline" href="#">GI Certificate Lookup</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-3">Let Us Help You</h4>
+<ul class="space-y-2 text-gray-300">
+<li><a class="hover:underline" href="#">Your Account</a></li>
+<li><a class="hover:underline" href="#">Heritage Craft Returns</a></li>
+<li><a class="hover:underline" href="#">100% Purchase Protection</a></li>
+<li><a class="hover:underline" href="#">Help &amp; Customer Care</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-[#3a4553] py-6 text-center text-gray-400 text-[11px]">
+<div class="flex justify-center items-center gap-4 mb-2">
+<span class="flex items-center gap-1 text-white font-bold text-sm"><span class="text-[#ff9900]">amazon</span>Heritage</span>
+<span class="border border-gray-600 px-2 py-0.5 rounded text-gray-300">English (IN)</span>
+<span class="border border-gray-600 px-2 py-0.5 rounded text-gray-300">₹ INR - Indian Rupee</span>
+</div>
+<p class="max-w-2xl mx-auto px-4 mt-2">
+        Amazon Heritage is a dedicated pavilion connecting sovereign Indian artisan guilds and registered Geographical Indications (GI) directly with customers globally.
+      </p>
+<div class="flex justify-center gap-4 mt-3 text-gray-400">
+<a class="hover:underline" href="#">Conditions of Use &amp; Sale</a>
+<a class="hover:underline" href="#">Privacy Notice</a>
+<a class="hover:underline" href="#">GI Verification Standards</a>
+<a class="hover:underline" href="#">Interest-Based Ads</a>
+</div>
+<p class="mt-2 text-gray-500">© 1996–2025, AmazonHeritage.com, Inc. or its registered artisan guild affiliates</p>
+</div>
+</footer>
+</body></html>

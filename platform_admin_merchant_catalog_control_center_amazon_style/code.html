@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary": "#b42906",
+        "on-surface": "#181c1d",
+        "on-secondary-container": "#5d636d",
+        "primary": "#8a5100",
+        "on-error-container": "#93000a",
+        "secondary-fixed-dim": "#c1c7d2",
+        "on-tertiary-fixed": "#3d0600",
+        "primary-container": "#ff9900",
+        "on-tertiary-fixed-variant": "#8b1a00",
+        "background": "#f7fafa",
+        "inverse-surface": "#2d3131",
+        "error-container": "#ffdad6",
+        "secondary-container": "#dae0eb",
+        "on-background": "#181c1d",
+        "on-secondary-fixed-variant": "#414750",
+        "surface-container-low": "#f1f4f4",
+        "on-surface-variant": "#554434",
+        "outline": "#887361",
+        "surface-container-lowest": "#ffffff",
+        "secondary": "#595f68",
+        "surface-dim": "#d7dbdb",
+        "surface": "#f7fafa",
+        "on-primary-container": "#653a00",
+        "surface-container-highest": "#e0e3e3",
+        "on-tertiary-container": "#861900",
+        "on-primary": "#ffffff",
+        "surface-bright": "#f7fafa",
+        "surface-variant": "#e0e3e3",
+        "on-secondary-fixed": "#161c24",
+        "on-primary-fixed": "#2c1600",
+        "secondary-fixed": "#dde3ee",
+        "on-tertiary": "#ffffff",
+        "error": "#ba1a1a",
+        "surface-tint": "#8a5100",
+        "on-error": "#ffffff",
+        "tertiary-fixed": "#ffdad2",
+        "primary-fixed": "#ffdcbd",
+        "inverse-primary": "#ffb86f",
+        "surface-container": "#ebeeee",
+        "surface-container-high": "#e6e9e9",
+        "inverse-on-surface": "#eef1f1",
+        "on-secondary": "#ffffff",
+        "tertiary-fixed-dim": "#ffb4a3",
+        "on-primary-fixed-variant": "#693c00",
+        "tertiary-container": "#ff957c",
+        "outline-variant": "#dbc2ad",
+        "primary-fixed-dim": "#ffb86f"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-xl": "1.5rem",
+        "margin-tablet": "1.25rem",
+        "space-md": "0.75rem",
+        "space-sm": "0.5rem",
+        "space-xs": "0.25rem",
+        "margin": "1rem",
+        "gutter-desktop": "1.25rem",
+        "margin-mobile": "0.75rem",
+        "gutter": "1rem",
+        "space-2xl": "2rem",
+        "margin-desktop": "1.5rem",
+        "gutter-mobile": "0.75rem",
+        "space-lg": "1rem"
+      },
+      "fontFamily": {
+        "headline-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-lg-mobile": ["Inter"],
+        "body-lg": ["Inter"],
+        "display-hero-mobile": ["Inter"],
+        "label-sm": ["Inter"],
+        "label-md": ["Inter"],
+        "body-sm": ["Inter"],
+        "price-lg": ["Inter"],
+        "price-sm": ["Inter"],
+        "headline-md": ["Inter"],
+        "display-hero": ["Inter"],
+        "price-xl": ["Inter"],
+        "headline-sm": ["Inter"]
+      },
+      "fontSize": {
+        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "headline-lg-mobile": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "display-hero-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+        "label-md": ["13px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+        "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+        "price-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "price-sm": ["15px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600"}],
+        "headline-md": ["20px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "display-hero": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+        "price-xl": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+        "headline-sm": ["16px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "700"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 h-16 bg-[#131921] z-50 flex items-center justify-between px-margin-desktop shadow-[0_1px_8px_rgba(0,0,0,0.2)]"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary-container text-2xl">storefront</span><span class="font-headline-sm text-headline-sm text-surface-container-lowest tracking-tight">BharatCraft</span><span class="font-label-sm text-label-sm uppercase bg-surface-container-highest/20 text-surface-container-highest px-space-xs py-0.5 rounded">Ops Console</span></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-lowest/10 px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-emerald-500"></span><span class="font-label-sm text-label-sm text-surface-container-lowest">All Systems Normal</span></div></div><div class="flex-1 max-w-2xl mx-space-xl"><div class="relative flex items-center w-full"><div class="absolute left-space-md flex items-center pointer-events-none"><span class="material-symbols-outlined text-secondary-fixed-dim text-xl">search</span></div><input class="w-full h-10 pl-10 pr-space-md bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Search merchants, SKUs, disputes, escrow refs..." type="text"/></div></div><div class="flex items-center gap-space-lg"><button class="relative p-space-xs text-surface-container-lowest hover:text-primary-container transition-colors"><span class="material-symbols-outlined text-2xl">notifications</span><span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full"></span></button><div class="flex items-center gap-space-md pl-space-md border-l border-surface-container-highest/20"><div class="text-right hidden md:block"><p class="font-label-md text-label-md text-surface-container-lowest leading-none">Pooja Sharma</p><p class="font-label-sm text-label-sm text-secondary-fixed-dim leading-none mt-1">Lead Trust & Operations</p></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-[#232f3e] z-40 flex flex-col py-space-md overflow-y-auto"><div class="px-space-md pb-space-sm"><p class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed-dim">Platform Moderation</p></div><nav class="flex-1 px-space-sm flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-bold rounded" data-path="control-center-overview" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span class="font-label-md text-label-md">Control Center Overview</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-surface-container-lowest hover:bg-surface-container-lowest/10 hover:text-surface-container-lowest transition-colors" data-path="merchant-verification-and-kyc" href="#"><span class="material-symbols-outlined text-xl">verified_user</span><span class="font-label-md text-label-md">Merchant Verification & KYC</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-surface-container-lowest hover:bg-surface-container-lowest/10 hover:text-surface-container-lowest transition-colors" data-path="product-catalog-qa" href="#"><span class="material-symbols-outlined text-xl">fact_check</span><span class="font-label-md text-label-md">Product Catalog QA</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-surface-container-lowest hover:bg-surface-container-lowest/10 hover:text-surface-container-lowest transition-colors" data-path="escrow-and-financials" href="#"><span class="material-symbols-outlined text-xl">account_balance_wallet</span><span class="font-label-md text-label-md">Escrow & Financials</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-surface-container-lowest hover:bg-surface-container-lowest/10 hover:text-surface-container-lowest transition-colors" data-path="disputes-and-arbitration" href="#"><span class="material-symbols-outlined text-xl">gavel</span><span class="font-label-md text-label-md">Disputes & Arbitration</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-surface-container-lowest hover:bg-surface-container-lowest/10 hover:text-surface-container-lowest transition-colors" data-path="carrier-and-logistics-sla" href="#"><span class="material-symbols-outlined text-xl">local_shipping</span><span class="font-label-md text-label-md">Carrier & Logistics SLA</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded text-surface-container-lowest hover:bg-surface-container-lowest/10 hover:text-surface-container-lowest transition-colors" data-path="system-settings" href="#"><span class="material-symbols-outlined text-xl">settings</span><span class="font-label-md text-label-md">System Settings</span></a></nav><div class="px-space-md pt-space-md border-t border-surface-container-highest/10"><div class="bg-surface-container-lowest/5 p-space-sm rounded"><p class="font-label-sm text-label-sm text-secondary-fixed-dim">Live Queue SLA</p><p class="font-body-md text-body-md text-surface-container-lowest font-bold mt-1">99.4% On Schedule</p></div></div></aside><div class="pl-64"><main class="w-full pt-16 min-h-screen bg-surface px-gutter-desktop py-space-xl"><div class="flex flex-col w-full space-y-space-lg">
+<!-- Top Breadcrumb & Status Super-Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">shield</span>
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<span class="text-secondary">Operations</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-bold">Merchant & Catalog Moderation Hub</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded font-label-sm text-label-sm uppercase tracking-wide">Production Live</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md text-secondary font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="text-on-surface font-medium">Sync: 18s ago</span>
+</div>
+<span>·</span>
+<span>National Artisan Database API: <strong class="text-on-surface">Connected</strong></span>
+<span>·</span>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm px-2.5 py-1 rounded transition-colors flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">refresh</span> Run Diagnostic
+      </button>
+</div>
+</div>
+<!-- Operational Telemetry Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wide text-secondary">Verified Merchants</p>
+<p class="font-price-xl text-price-xl text-on-surface mt-1">1,842</p>
+</div>
+<div class="w-9 h-9 rounded bg-emerald-50 text-emerald-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">verified</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-emerald-700 font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+28 wk
+        </span>
+<span class="text-secondary">98.4% Compliance</span>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wide text-secondary">Pending KYC Queue</p>
+<div class="flex items-baseline gap-space-xs mt-1">
+<p class="font-price-xl text-price-xl text-tertiary">24</p>
+<span class="bg-error-container text-on-error-container px-1.5 py-0.5 rounded font-label-sm text-label-sm uppercase">Urgent</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded bg-error-container text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">pending_actions</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-secondary">Avg Resolution SLA</span>
+<span class="font-bold text-tertiary">3.8h (Target <6h)</span>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wide text-secondary">Catalog QA Flags</p>
+<p class="font-price-xl text-price-xl text-primary mt-1">86</p>
+</div>
+<div class="w-9 h-9 rounded bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">rule_folder</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-body-sm font-body-sm text-secondary">
+<span>34 GI Audits</span>
+<span>·</span>
+<span class="text-tertiary font-medium">22 Price Drifts</span>
+<span>·</span>
+<span>30 New</span>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wide text-secondary">Live Catalog SKUs</p>
+<p class="font-price-xl text-price-xl text-on-surface mt-1">28,490</p>
+</div>
+<div class="w-9 h-9 rounded bg-surface-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">inventory_2</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-secondary">Active Status</span>
+<span class="text-amber-800 font-bold bg-amber-50 px-1.5 py-0.5 rounded">14 On Anomaly Hold</span>
+</div>
+</div>
+<!-- Stat 5 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wide text-secondary">Escrow Safeguard Vault</p>
+<p class="font-price-xl text-price-xl text-on-surface mt-1">₹3,42,800</p>
+</div>
+<div class="w-9 h-9 rounded bg-amber-100 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">lock</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-secondary">Dispute Protection</span>
+<span class="text-tertiary font-bold">11 Payout Holds</span>
+</div>
+</div>
+</div>
+<!-- Operational Filter / Quick Navigation Tabs -->
+<div class="bg-surface-container-lowest p-2 rounded-lg shadow-sm flex items-center gap-1.5 overflow-x-auto">
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-space-md py-2 rounded-full whitespace-nowrap shadow-sm">
+      All Operations
+    </button>
+<button class="hover:bg-surface-container-low text-on-surface font-label-md text-label-md px-space-md py-2 rounded-full whitespace-nowrap transition-colors flex items-center gap-1.5">
+      Merchant KYC & Guilds
+      <span class="bg-tertiary text-on-tertiary px-1.5 py-0.2 rounded-full text-label-sm font-label-sm">24</span>
+</button>
+<button class="hover:bg-surface-container-low text-on-surface font-label-md text-label-md px-space-md py-2 rounded-full whitespace-nowrap transition-colors flex items-center gap-1.5">
+      Catalog Moderation & QA
+      <span class="bg-surface-container text-on-surface px-1.5 py-0.2 rounded-full text-label-sm font-label-sm font-bold">86</span>
+</button>
+<button class="hover:bg-surface-container-low text-on-surface font-label-md text-label-md px-space-md py-2 rounded-full whitespace-nowrap transition-colors flex items-center gap-1.5">
+      GI Provenance Audits
+      <span class="bg-amber-100 text-primary px-1.5 py-0.2 rounded-full text-label-sm font-label-sm font-bold">34</span>
+</button>
+<button class="hover:bg-surface-container-low text-on-surface font-label-md text-label-md px-space-md py-2 rounded-full whitespace-nowrap transition-colors">
+      Escrow & Payout Freezes
+    </button>
+<button class="hover:bg-surface-container-low text-on-surface font-label-md text-label-md px-space-md py-2 rounded-full whitespace-nowrap transition-colors">
+      Disputes Triaged
+    </button>
+</div>
+<!-- Critical Alerts / Triage Callouts -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+<!-- Alert 1: Synthetic Claims -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start gap-space-md">
+<div class="p-2.5 bg-error-container text-tertiary rounded flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">warning</span>
+</div>
+<div class="space-y-1 flex-1">
+<div class="flex items-center justify-between">
+<span class="bg-tertiary text-on-tertiary font-label-sm text-label-sm px-2 py-0.5 rounded uppercase font-bold tracking-wider">Provenance Anomaly</span>
+<span class="font-body-sm text-body-sm text-secondary">Detected: 14m ago by Spec-AI</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Synthetic Material Claim Flagged · SKU #BC-8492</h4>
+<p class="font-body-sm text-body-sm text-secondary">
+            Merchant claims <strong class="text-on-surface">100% Pure Varanasi Katan Silk</strong>. Spectrometry & supply yarn density cross-check indicates blended polyester warp fiber. GI tag GI-208 infringement risk.
+          </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low/60 p-space-sm rounded">
+<span class="font-label-sm text-label-sm text-secondary">Seller: <span class="text-on-surface font-semibold">Ganga Heritage Loom #982</span> (VNS-09)</span>
+<div class="flex items-center gap-space-sm">
+<button class="bg-surface-container-lowest text-tertiary hover:bg-error-container px-space-md py-1.5 rounded-full font-label-md text-label-md shadow-sm transition-colors">
+            Freeze Seller Escrow (₹18,400)
+          </button>
+<button class="bg-tertiary text-on-tertiary hover:opacity-95 px-space-md py-1.5 rounded-full font-label-md text-label-md shadow-sm transition-opacity flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">block</span> Quarantine Listing
+          </button>
+</div>
+</div>
+</div>
+<!-- Alert 2: Price Anomaly -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start gap-space-md">
+<div class="p-2.5 bg-amber-100 text-primary rounded flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">price_change</span>
+</div>
+<div class="space-y-1 flex-1">
+<div class="flex items-center justify-between">
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded uppercase font-bold tracking-wider">Severe Price Deviation</span>
+<span class="font-body-sm text-body-sm text-secondary">Trigger: Standard Drift Algorithm</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Seller #412 listed Kashmir Pashmina Shawl at ₹1,200</h4>
+<p class="font-body-sm text-body-sm text-secondary">
+            Cluster historical median sits at <strong class="text-on-surface">₹9,500</strong> for Changthangi goat wool grade. 87% below regional floor. High likelihood of synthetic Acrylic imitation fraud.
+          </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low/60 p-space-sm rounded">
+<span class="font-label-sm text-label-sm text-secondary">Cluster: <span class="text-on-surface font-semibold">Srinagar GI-46</span> · Stock: 40 units</span>
+<div class="flex items-center gap-space-sm">
+<button class="bg-surface-container-lowest text-on-surface hover:bg-surface-container px-space-md py-1.5 rounded-full font-label-md text-label-md shadow-sm transition-colors">
+            Request Fiber Lab Test
+          </button>
+<button class="bg-primary-container text-on-primary-container hover:bg-primary-container/90 px-space-md py-1.5 rounded-full font-label-md text-label-md shadow-sm transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility_off</span> Suspend SKU & Notify
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Registered Artisan Roster & Merchant Operations Table -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<!-- Filter Header -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-2xl">groups_3</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Artisan Guilds & Merchant Operations</h3>
+<p class="font-body-sm text-body-sm text-secondary">1,842 Registered Entities across 48 National Craft Corridors</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="relative min-w-[280px]">
+<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-secondary text-lg">search</span>
+<input class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm pl-9 pr-3 py-2 rounded focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="Filter guild, GSTIN, artisan PAN..." type="text"/>
+</div>
+<select class="bg-surface-container-low text-on-surface font-body-sm text-body-sm px-3 py-2 rounded focus:outline-none focus:ring-1 focus:ring-primary-container">
+<option>Cluster: All Regions</option>
+<option>Jaipur Terracotta</option>
+<option>Varanasi Silk</option>
+<option>Khurja Ceramic</option>
+<option>Kutch Bandhani</option>
+</select>
+<select class="bg-surface-container-low text-on-surface font-body-sm text-body-sm px-3 py-2 rounded focus:outline-none focus:ring-1 focus:ring-primary-container">
+<option>Tier: All Tiers</option>
+<option>Tier-1 Master Guild</option>
+<option>Tier-2 Registered Co-op</option>
+<option>Independent Master Artisan</option>
+</select>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface p-2 rounded transition-colors" title="Export CSV">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-md">Artisan Guild & Identifiers</th>
+<th class="py-3 px-space-md">Cluster & Tier</th>
+<th class="py-3 px-space-md">Trust Score</th>
+<th class="py-3 px-space-md">Monthly GMV / SKUs</th>
+<th class="py-3 px-space-md">Compliance & Provenance</th>
+<th class="py-3 px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-sm">
+                  JT
+                </div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+                    Jaipur Terracotta Guild
+                    <span class="material-symbols-outlined text-emerald-600 text-sm" title="Verified Master Guild">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">GST: 08AAACJ1420K1ZX · Code: RJ-JPR-01</p>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded font-label-sm text-label-sm text-on-surface">Tier-1 Master Guild</span>
+<p class="text-secondary text-[11px] mt-0.5">Rajasthan Cluster Hub</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-bold text-emerald-700">99.4%</span>
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[99.4%] h-full bg-emerald-600"></div>
+</div>
+</div>
+<p class="text-[11px] text-secondary">Zero dispute escalations</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-bold text-on-surface">₹4,82,500<span class="text-secondary text-[11px] font-normal">/mo</span></div>
+<p class="text-secondary text-[11px]">142 Verified SKUs Live</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="bg-emerald-50 text-emerald-800 font-label-sm text-label-sm px-2 py-0.5 rounded">PAN / GST Valid</span>
+<span class="bg-amber-100 text-primary font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">GI-184</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1.5">
+<button class="bg-primary-container text-on-primary-container hover:bg-primary-container/90 px-3 py-1 rounded font-label-md text-label-md transition-colors shadow-sm">
+                  Inspect Catalog
+                </button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface p-1 rounded" title="Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-sm">
+                  VS
+                </div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+                    Varanasi Silk Weavers Co-op
+                    <span class="material-symbols-outlined text-emerald-600 text-sm">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">GST: 09BBAVC5839P1ZM · Code: UP-VNS-04</p>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded font-label-sm text-label-sm text-on-surface">Registered Co-op</span>
+<p class="text-secondary text-[11px] mt-0.5">Uttar Pradesh Corridors</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-bold text-emerald-700">97.8%</span>
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[97.8%] h-full bg-emerald-600"></div>
+</div>
+</div>
+<p class="text-[11px] text-secondary">1 yarn claim pending review</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-bold text-on-surface">₹8,14,200<span class="text-secondary text-[11px] font-normal">/mo</span></div>
+<p class="text-secondary text-[11px]">210 Verified SKUs Live</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="bg-emerald-50 text-emerald-800 font-label-sm text-label-sm px-2 py-0.5 rounded">Bank KYC Vetted</span>
+<span class="bg-amber-100 text-primary font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">GI-208</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1.5">
+<button class="bg-primary-container text-on-primary-container hover:bg-primary-container/90 px-3 py-1 rounded font-label-md text-label-md transition-colors shadow-sm">
+                  Inspect Catalog
+                </button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface p-1 rounded" title="Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Pending KYC & Anomaly -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold text-sm">
+                  KH
+                </div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+                    Khurja Heritage Kilns
+                    <span class="bg-error-container text-tertiary font-label-sm text-label-sm px-1.5 py-0.2 rounded font-bold">Pending KYC</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Reg ID: UP-KHJ-02 · Unverified Bank Account</p>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded font-label-sm text-label-sm text-on-surface">Registered MSME</span>
+<p class="text-secondary text-[11px] mt-0.5">Bulandshahr Pottery District</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-bold text-tertiary">84.2%</span>
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[84.2%] h-full bg-tertiary"></div>
+</div>
+</div>
+<p class="text-[11px] text-tertiary font-bold">Escrow Freeze: ₹48,500</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-bold text-on-surface">₹1,45,000<span class="text-secondary text-[11px] font-normal">/mo</span></div>
+<p class="text-secondary text-[11px]">34 Pending Approval</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="bg-error-container text-tertiary font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">Penny Drop Req</span>
+<span class="bg-surface-container text-secondary font-label-sm text-label-sm px-2 py-0.5 rounded">Lead Audit Req</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1.5">
+<button class="bg-emerald-700 text-on-primary hover:bg-emerald-800 px-3 py-1 rounded font-label-md text-label-md transition-colors shadow-sm">
+                  Approve KYC
+                </button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-2 py-1 rounded font-label-md text-label-md">
+                  Audit Report
+                </button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center font-bold text-sm">
+                  KB
+                </div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+                    Kutch Bandhani Artisans
+                    <span class="material-symbols-outlined text-emerald-600 text-sm">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">GST: 24AAAFK8492J1ZW · Code: GJ-BHUJ-08</p>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded font-label-sm text-label-sm text-on-surface">Community Co-op</span>
+<p class="text-secondary text-[11px] mt-0.5">Gujarat Tie-Dye Guild</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-bold text-emerald-700">98.9%</span>
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[98.9%] h-full bg-emerald-600"></div>
+</div>
+</div>
+<p class="text-[11px] text-secondary">Optimal buyer satisfaction</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-bold text-on-surface">₹5,90,400<span class="text-secondary text-[11px] font-normal">/mo</span></div>
+<p class="text-secondary text-[11px]">96 Verified SKUs Live</p>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="bg-amber-100 text-primary font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">GI-119</span>
+<span class="bg-emerald-50 text-emerald-800 font-label-sm text-label-sm px-2 py-0.5 rounded">Audited Q3</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1.5">
+<button class="bg-primary-container text-on-primary-container hover:bg-primary-container/90 px-3 py-1 rounded font-label-md text-label-md transition-colors shadow-sm">
+                  Inspect Catalog
+                </button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface p-1 rounded" title="Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Strip -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-secondary">
+<div>Showing <span class="font-bold text-on-surface">1–4</span> of <span class="font-bold text-on-surface">1,842</span> registered artisan merchant records</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-colors disabled:opacity-40" disabled="">Previous</button>
+<button class="px-3 py-1 rounded bg-primary-container text-on-primary-container font-bold shadow-sm">1</button>
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-colors">2</button>
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-colors">3</button>
+<span class="px-1 text-secondary">...</span>
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-colors">461</button>
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-colors">Next</button>
+</div>
+</div>
+</div>
+<!-- Catalog QA & Inspection Console (Two-Column Split Console) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start">
+<!-- Active Listing In-Depth Inspection Card (7 Cols) -->
+<div class="xl:col-span-7 bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md">
+<!-- Section Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wide text-secondary font-bold">Active QA Inspection Terminal</span>
+</div>
+<span class="bg-amber-50 text-amber-900 font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold">Item 1 of 86 Flagged</span>
+</div>
+<!-- Item Meta & Title -->
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-sm text-body-sm font-body-sm text-secondary">
+<span>SKU: <strong class="text-on-surface">IND-JPR-7741</strong></span>
+<span>·</span>
+<span>Merchant: <a class="text-primary hover:underline font-semibold" href="#">Jaipur Terracotta Guild</a> (RJ-JPR-01)</span>
+<span>·</span>
+<span>Submitted: Today, 08:34 IST</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">
+          Handcrafted Glazed Terracotta 6-Piece Royal Dinner Set
+        </h3>
+</div>
+<!-- Photos and Authenticity Visual Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Main Image Preview with Zoom Badge -->
+<div class="md:col-span-2 relative rounded-lg overflow-hidden bg-surface-container h-64 shadow-inner group">
+<img class="w-full h-full object-cover" data-alt="Close up artisanal Indian glazed terracotta dinner plates and bowls with traditional organic red clay earthen finish, smooth studio lighting, isolated product photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrHwCNn-D-KrLiCoCmvSwXj7iQhJvKH0zSCcDWhM9sxuz2D_fd3XURHftoCFJzsq69QKD2wVFN9jKfHNEVRuK2CqX-ex_M7spNkP1r4jyh52dGJNqmTb9e7mUagwsfyCs2M5J1E-z-qixdlOYsjJdgc5Me_v7bU99jDEc2H3eEY8-xUTFHNhvEqWTxM6nOBn-aDeLbMjSUr6QQULcNkZwrdgK9wUoXkFXNdUkjjwudrB12gNhCQzMJZg"/>
+<div class="absolute bottom-2 left-2 bg-inverse-surface/80 text-inverse-on-surface px-2.5 py-1 rounded font-label-sm text-label-sm flex items-center gap-1 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> Studio Shot · High-Res 4K
+          </div>
+<div class="absolute top-2 right-2 bg-emerald-700 text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded font-bold flex items-center gap-1 shadow">
+<span class="material-symbols-outlined text-[14px]">psychology</span> 99.2% Studio Match
+          </div>
+</div>
+<!-- Thumbnail Gallery + Stamp -->
+<div class="flex flex-col justify-between gap-space-sm">
+<div class="h-20 rounded bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Artisan hands shaping terracotta earthenware clay pottery wheel in traditional Rajasthani workshop setting, warm natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChP71C1JGFrwDlGiEBgsHQ3dJXNSNcUHL82lb6xxQQyN-6d510C6OLvIA68GFYUf_MOGSceIPP5RzMAIxRUf6JRmIhAjhwRMVd2sUOMxQihEdURsAkQ4rw5C42bQ7dwI2MBrzgByRU2WmoZI4Dsarqe4TuoGsgMup8JU7nVoDXmcB3t7CqQy0DqTV0oYSf7zEU0umHaIL5VvZbmDpX4B2iJcvI-pYT2WIfXs3iBrlVhkhnNGsmvC4P3g"/>
+</div>
+<div class="h-20 rounded bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Detailed macro view of kiln fire glaze on terracotta surface with artisan craftsman hallmark stamp on base" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxpYQNiryHxnJUSFIuvkISMzrU0DFWEeSIZ4DihXtsuHpHuQqBtd7fyjHVgSbOsoLjPgSpvHpz_4uykJtLcwqYlTKpr9FZOTIbiUk3y6KnrKJ1_T0A7boZoJFRpLh928Mm_RI6vb_3E12zhPn1OyjatTaEof193a1JeVA0q_QQ1WmaGWAPF00WpgSVpSm05TB1IwzRHxe0qEEU_cttfIt4dApFOaDLCgava1XRcehjYgSJJFLWmP9IyA"/>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded text-center">
+<p class="font-label-sm text-label-sm text-secondary">Zero Stock Photos Detected</p>
+<p class="font-label-md text-label-md text-emerald-700 font-bold mt-0.5">Authentic Artisan Origin</p>
+</div>
+</div>
+</div>
+<!-- Provenance, Benchmark & Certification Checklist (Amazon style micro-grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs">
+<!-- GI Provenance Block -->
+<div class="p-space-sm bg-surface-container-low rounded space-y-1">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm font-bold uppercase">GI Registry Link</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">Tag: #GI-184 Verified</p>
+<p class="text-[11px] text-secondary">Matched with National Earthenware Registry records.</p>
+</div>
+<!-- Fair Price Audit -->
+<div class="p-space-sm bg-surface-container-low rounded space-y-1">
+<div class="flex items-center gap-1 text-emerald-700">
+<span class="material-symbols-outlined text-[16px]">bar_chart</span>
+<span class="font-label-sm text-label-sm font-bold uppercase">Price Benchmark</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">₹2,499</span>
+<span class="text-[11px] text-secondary">(Median: ₹2,200–2,800)</span>
+</div>
+<p class="text-[11px] text-emerald-700 font-medium">Fair Pricing Compliant</p>
+</div>
+<!-- Lab Certification -->
+<div class="p-space-sm bg-surface-container-low rounded space-y-1">
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px]">biotech</span>
+<span class="font-label-sm text-label-sm font-bold uppercase">Food-Grade Lab Test</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">NABL Lead-Free Cert #992</p>
+<p class="text-[11px] text-secondary">Certified safe for microwave & dishware.</p>
+</div>
+</div>
+<!-- Reviewer Action & Notes Bar -->
+<div class="p-space-md bg-surface-container-low/70 rounded-lg space-y-space-sm">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block font-bold">
+          Inspector Quality Assurance Note (Included in Guild Audit Log):
+        </label>
+<div class="relative">
+<textarea class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm p-space-sm rounded focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="e.g. Approved. Studio authenticity verified, NABL report attached, fair price bracket matched." rows="2"></textarea>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="bg-surface-container-lowest hover:bg-surface-container text-tertiary px-space-md py-2 rounded-full font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">cancel</span> Reject & Quarantine
+            </button>
+<button class="bg-surface-container-lowest hover:bg-surface-container text-on-surface px-space-md py-2 rounded-full font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit_note</span> Request Reshoot / Edit
+            </button>
+</div>
+<button class="bg-primary-container hover:bg-primary-container/90 text-on-primary-container px-space-xl py-2.5 rounded-full font-label-md text-label-md font-bold shadow-md transition-all flex items-center gap-1.5 transform active:scale-95">
+<span class="material-symbols-outlined text-lg">publish</span> Approve & Publish to Marketplace
+          </button>
+</div>
+</div>
+</div>
+<!-- Quick Triage Queue (5 Cols) -->
+<div class="xl:col-span-5 bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Pending QA Stream</h4>
+<p class="font-body-sm text-body-sm text-secondary">Prioritized by SLA urgency & risk rating</p>
+</div>
+<span class="bg-surface-container text-secondary px-2 py-0.5 rounded font-label-sm text-label-sm font-bold">85 In Queue</span>
+</div>
+<!-- Quick Triage Cards Stack -->
+<div class="space-y-space-sm">
+<!-- Item 1 in Queue -->
+<div class="p-space-sm bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors flex items-center gap-space-sm">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Traditional gold zari brocade Varanasi pure silk fabric roll showing intricate floral patterns, close up shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAogZLsRZ630NGM2BiWwptnqfgTd9lokT8VWitJNIxcuimMf1ucG-S0TLkRPQxq1U3t6a6drJ07xlIyKz6SGePi0x9A4DnqSKY9x0Sc-mvYN5StU2TP2F3ax7YvkM8KhNj4UwIkE32MoKCzj1sZdcgzWCZSdj9bXBU_f4ZlGqZR9wtdc7MIDBUeUphN5UTjs9JO8vU08MQwCPhxpxe158eZyitngHmsoT9N299yAuz7bSZsc2KlmV2RGQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-1.5 py-0.2 rounded font-bold">GI Audit Req</span>
+<span class="font-price-sm text-price-sm text-on-surface">₹14,999</span>
+</div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface truncate mt-0.5">Varanasi Katan Silk Zari Brocade Saree</h5>
+<p class="text-[11px] text-secondary truncate">Varanasi Silk Weavers · UP-VNS-04</p>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-primary hover:underline font-label-sm text-label-sm font-bold">Inspect Now</button>
+<span class="text-secondary text-[11px]">·</span>
+<button class="text-emerald-700 hover:underline font-label-sm text-label-sm font-bold">Quick Approve</button>
+</div>
+</div>
+</div>
+<!-- Item 2 in Queue -->
+<div class="p-space-sm bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors flex items-center gap-space-sm">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Terracotta porous cooling water pot matka with traditional hand carved neck designs from Pokhran Rajasthan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSleOluC6DyLaz-__L4w7oX8NZCke3hXEIhOJ84uy2l0JySGqhZA68xlSF3CVbKM0YIPyhGAAKsaea3sBbDpo2efORM6GYc3FvlnY6qGIaV4TVN7rdfo78AVv6-3WEx5nRuJBLeEAyQrRMjSjjItpU_7Og9ogdhBe-z-WZ5Hgy8mI8AY6kFVHii_fZdSFV8O4X0jrK97-cOJGqBDrSVB-ysJ89KaLyyNx8UN3V8xlFuIKsBClDlvrdsA"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="bg-emerald-100 text-emerald-800 font-label-sm text-label-sm px-1.5 py-0.2 rounded font-bold">Passed Spec</span>
+<span class="font-price-sm text-price-sm text-on-surface">₹640</span>
+</div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface truncate mt-0.5">Pokhran Porous Clay Cooling Matka</h5>
+<p class="text-[11px] text-secondary truncate">Thar Rural Artisan Collective · RJ-PKH-11</p>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-primary hover:underline font-label-sm text-label-sm font-bold">Inspect Now</button>
+<span class="text-secondary text-[11px]">·</span>
+<button class="text-emerald-700 hover:underline font-label-sm text-label-sm font-bold">Quick Approve</button>
+</div>
+</div>
+</div>
+<!-- Item 3 in Queue -->
+<div class="p-space-sm bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors flex items-center gap-space-sm">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Traditional heavy hammered solid brass decorative Urli floating flower bowl polished golden luster handcrafted in Moradabad" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_YKDM1f5bVWkY98JCxKUn9qwr7SqF_W0TkLPMpAtdaOM6O8Smyta40Ex646A01FA5ah6KTRimXN53ixJGRrbl85H_ZzkLAvD7NjYgZCSI_7f4uUGs5XRw9Nt5bEuJwpQ7QW5RNPeQPLpQHnzdgYEPVI1dajlaIS7422ZL4MfwxpLy-XE6yxEotUrIUe1daKubCyhZAc258ESsA-8KabdEyHQ0vpbcuZx8jEF-PjVP087ilzr3YtJ9ig"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="bg-amber-100 text-primary font-label-sm text-label-sm px-1.5 py-0.2 rounded font-bold">Weight Audit</span>
+<span class="font-price-sm text-price-sm text-on-surface">₹3,850</span>
+</div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface truncate mt-0.5">Moradabad Solid Brass Floating Urli (14")</h5>
+<p class="text-[11px] text-secondary truncate">Peetal Nagari Crafts Guild · UP-MBD-03</p>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-primary hover:underline font-label-sm text-label-sm font-bold">Inspect Now</button>
+<span class="text-secondary text-[11px]">·</span>
+<button class="text-emerald-700 hover:underline font-label-sm text-label-sm font-bold">Quick Approve</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Triage Action Footer -->
+<div class="pt-space-xs text-center">
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-full transition-colors flex items-center justify-center gap-1 shadow-sm">
+<span>Batch Process All Passed Items (30 SKUs)</span>
+<span class="material-symbols-outlined text-[16px]">fast_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Regional Craft Cluster Quality & Provenance Index -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-2xl">insights</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Regional Craft Cluster Quality & Provenance Index</h4>
+<p class="font-body-sm text-body-sm text-secondary">Real-time composite telemetry aggregating physical audits, buyer satisfaction, and GI registry integrity.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm uppercase text-secondary">Index Period:</span>
+<span class="bg-surface-container font-label-sm text-label-sm px-2 py-1 rounded text-on-surface font-bold">Last 30 Days</span>
+</div>
+</div>
+<!-- Cluster Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Cluster 1 -->
+<div class="p-space-md bg-surface-container-low rounded-lg space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Jaipur Terracotta</span>
+<span class="font-price-sm text-price-sm text-emerald-700">99.1%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[99.1%] h-full bg-emerald-600 rounded-full"></div>
+</div>
+<div class="flex justify-between text-[11px] text-secondary">
+<span>142 Active Guilds</span>
+<span class="text-emerald-700 font-bold">Zero Contaminations</span>
+</div>
+</div>
+<!-- Cluster 2 -->
+<div class="p-space-md bg-surface-container-low rounded-lg space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Varanasi Zari & Silk</span>
+<span class="font-price-sm text-price-sm text-primary">96.4%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[96.4%] h-full bg-primary-container rounded-full"></div>
+</div>
+<div class="flex justify-between text-[11px] text-secondary">
+<span>210 Active Guilds</span>
+<span class="text-tertiary font-bold">2 Synthetic Claims</span>
+</div>
+</div>
+<!-- Cluster 3 -->
+<div class="p-space-md bg-surface-container-low rounded-lg space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Kashmir Pashmina</span>
+<span class="font-price-sm text-price-sm text-emerald-700">98.8%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[98.8%] h-full bg-emerald-600 rounded-full"></div>
+</div>
+<div class="flex justify-between text-[11px] text-secondary">
+<span>88 Active Guilds</span>
+<span class="text-emerald-700 font-bold">GI-46 Certified</span>
+</div>
+</div>
+<!-- Cluster 4 -->
+<div class="p-space-md bg-surface-container-low rounded-lg space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Bankura Terracotta</span>
+<span class="font-price-sm text-price-sm text-primary">94.2%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[94.2%] h-full bg-primary-container rounded-full"></div>
+</div>
+<div class="flex justify-between text-[11px] text-secondary">
+<span>52 Active Guilds</span>
+<span class="text-amber-800 font-bold">Packaging SLA Flag</span>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
